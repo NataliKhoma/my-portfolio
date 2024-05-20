@@ -1,0 +1,239 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --index: calc(1vw + 1vh);
+  --color-header: #1e0230;
+  --color-text: #3f0367;
+  /*--color-text: #7d3caa;*/
+  --gallery-gap: calc(var(--index) * 10);
+}
+
+@font-face {
+  font-family: raleway-c;
+  src: url(../fonts/dancing-script-v25-latin-regular.woff2);
+}
+
+@font-face {
+  font-family: outfit-c;
+  src: url(../fonts/dancing-script-v25-latin-700.woff2);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: outfit-c;
+}
+
+.content,
+.hero,
+.main-header,
+.gallery > * {
+  will-change: transform;
+}
+
+body {
+  background-image: url(../img/background.jpg);
+  background-size: 120%;
+  color: #3e6c82c0;
+  /*color: #44748bc0;*/
+  /*color: #275e58c0;*/
+  /*color: #0caee4;*/
+  /*color: #fafafa;*/
+  font-family: raleway-c;
+  overflow-x: hidden;
+}
+
+/* воно не працює на мобільному
+.hero {
+  width: calc(var(--index) * 40);
+  position: absolute;
+  left: 45vw;
+  top: 12vh;
+  z-index: -1;
+}
+*/
+
+/* прикріплене на мобільному і знаходиться по середині*/
+.hero {
+  position: fixed;
+  top: 0;
+  left: calc(60vw - (var(--index) * 20));
+  width: calc(var(--index) * 40);
+  height: auto;
+  z-index: -1;
+}
+
+/*.hero {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%; 
+height: auto;
+  z-index: -1;
+}*/
+
+/* Медіа-запит для зміни стилю зображення на більших екранах (наприклад, планшетах і комп'ютерах) */
+@media (min-width: 768px) {
+  .hero {
+    width: calc(var(--index) * 40); /* Ваша ширина для більших екранів */
+  }
+}
+
+.main-header {
+  height: 100vh;
+}
+
+.container {
+  padding: 0 8vw;
+}
+
+/*текст в два рядочки нерухомий*/
+
+.main-title {
+  font-size: calc(var(--index) * 5);
+  position: absolute;
+  width: min-content;
+  bottom: 12vh;
+  line-height: 0.9;
+  cursor: pointer;
+  margin-bottom: 10px;
+
+  /*Імітація друкування*/
+
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0px solid;
+  animation: typing 4s steps(40, end);
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.main-title:hover {
+  color: #ec572e; /* Змінює колір тексту на червоний при наведенні миші */
+}
+
+.sub-title {
+  font-size: calc(var(--index) * 2);
+  position: absolute;
+  margin-top: 70px;
+
+  bottom: 6vh;
+  cursor: pointer;
+
+  /*Імітація друкування*/
+
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0px solid;
+  visibility: hidden;
+}
+
+.sub-title.start-animation {
+  visibility: visible;
+  animation: typing-subtitle 4s steps(40, end);
+}
+
+@keyframes typing-subtitle {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.sub-title:hover {
+  color: #ec572e; /* Змінює колір тексту на червоний при наведенні миші */
+}
+
+.about-section {
+  padding: 8vw 8vw;
+}
+
+.text-title {
+  font-size: calc(var(--index) * 1.5);
+  margin-top: 25vh;
+}
+
+.gallery {
+  display: flex;
+  padding: calc(var (--index) * 8) 0;
+}
+
+.gallery > * {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.gallery__item {
+  max-width: calc(var(--index) * 20);
+  margin-bottom: var(--gallery-gap);
+  max-height: 180vh;
+  border-radius: 8px;
+}
+
+.gallery__left {
+  margin-top: calc(var(--gallery-gap) * 1.5);
+}
+
+.gallery__right .gallery__item {
+  margin: 0;
+  margin-top: var(--gallery-gap);
+}
+
+.text-block {
+  color: var(--color-text);
+  position: relative;
+}
+
+.text-block__h {
+  font-size: 3rem;
+  line-height: 2.4rem;
+  color: #faf4ea;
+  /*color: var(--color-header);*/
+  margin-bottom: 1.5rem;
+}
+
+.text-block__p {
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: #819b57;
+  list-style-type: none; /*це я забираю крапочки в списку*/
+}
+
+.xarxes-socials {
+  position: fixed;
+  top: 32vh;
+  right: 0;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  overflow: hidden;
+  z-index: 99;
+}
+
+.xarxes-socials__icon {
+  fill: #3e6c82c0;
+  margin-top: 30px;
+
+  :hover {
+    fill: #ec572e;
+  }
+}
