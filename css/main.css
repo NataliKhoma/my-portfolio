@@ -55,7 +55,7 @@ body {
 .hero {
   position: fixed;
   top: 0;
-  left: calc(60vw - (var(--index) * 25));
+  left: calc(60vw - (var(--index) * 26));
   width: calc(var(--index) * 40);
   height: auto;
   z-index: -1;
