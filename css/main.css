@@ -6,20 +6,19 @@
 
 :root {
   --index: calc(1vw + 1vh);
-  --color-header: #1e0230;
-  --color-text: #3f0367;
-  /*--color-text: #7d3caa;*/
   --gallery-gap: calc(var(--index) * 10);
-}
-
-@font-face {
-  font-family: raleway-c;
-  src: url(../fonts/dancing-script-v25-latin-regular.woff2);
+  --color-brand-dark: #3e6c82c0;
+  --color-brand-normal: #ec572e;
 }
 
 @font-face {
   font-family: outfit-c;
   src: url(../fonts/dancing-script-v25-latin-700.woff2);
+}
+
+@font-face {
+  font-family: raleway-c;
+  src: url(../fonts/dancing-script-v25-latin-regular.woff2);
 }
 
 h1,
@@ -29,6 +28,12 @@ h4,
 h5,
 h6 {
   font-family: outfit-c;
+  line-height: 1.2;
+}
+
+p {
+  line-height: 1.5;
+  text-align: justify;
 }
 
 .content,
@@ -40,50 +45,20 @@ h6 {
 
 body {
   background-image: url(../img/background.jpg);
-  background-size: 120%;
-  color: #3e6c82c0;
-  /*color: #44748bc0;*/
-  /*color: #275e58c0;*/
-  /*color: #0caee4;*/
-  /*color: #fafafa;*/
+  background-size: cover;
+  background-size: 130%;
+  color: var(--color-brand-dark);
   font-family: raleway-c;
   overflow-x: hidden;
 }
 
-/* воно не працює на мобільному
-.hero {
-  width: calc(var(--index) * 40);
-  position: absolute;
-  left: 45vw;
-  top: 12vh;
-  z-index: -1;
-}
-*/
-
-/* прикріплене на мобільному і знаходиться по середині*/
 .hero {
   position: fixed;
   top: 0;
-  left: calc(60vw - (var(--index) * 20));
+  left: calc(60vw - (var(--index) * 17));
   width: calc(var(--index) * 40);
   height: auto;
   z-index: -1;
-}
-
-/*.hero {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100%; 
-height: auto;
-  z-index: -1;
-}*/
-
-/* Медіа-запит для зміни стилю зображення на більших екранах (наприклад, планшетах і комп'ютерах) */
-@media (min-width: 768px) {
-  .hero {
-    width: calc(var(--index) * 40); /* Ваша ширина для більших екранів */
-  }
 }
 
 .main-header {
@@ -94,22 +69,19 @@ height: auto;
   padding: 0 8vw;
 }
 
-/*текст в два рядочки нерухомий*/
-
 .main-title {
   font-size: calc(var(--index) * 5);
   position: absolute;
   width: min-content;
-  bottom: 12vh;
-  line-height: 0.9;
+  bottom: 8vh;
   cursor: pointer;
-  margin-bottom: 10px;
+  margin-bottom: 8vh;
 
   /*Імітація друкування*/
 
   white-space: nowrap;
   overflow: hidden;
-  border-right: 0px solid;
+  border-right: 0 solid;
   animation: typing 4s steps(40, end);
 }
 
@@ -123,14 +95,13 @@ height: auto;
 }
 
 .main-title:hover {
-  color: #ec572e; /* Змінює колір тексту на червоний при наведенні миші */
+  color: var(--color-brand-normal);
 }
 
 .sub-title {
-  font-size: calc(var(--index) * 2);
+  font-size: calc(var(--index) * 2.5);
   position: absolute;
-  margin-top: 70px;
-
+  margin-top: 8vh;
   bottom: 6vh;
   cursor: pointer;
 
@@ -138,7 +109,7 @@ height: auto;
 
   white-space: nowrap;
   overflow: hidden;
-  border-right: 0px solid;
+  border-right: 0 solid;
   visibility: hidden;
 }
 
@@ -157,35 +128,39 @@ height: auto;
 }
 
 .sub-title:hover {
-  color: #ec572e; /* Змінює колір тексту на червоний при наведенні миші */
+  color: #ce7fa2;
 }
 
 .about-section {
-  padding: 8vw 8vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 8vw;
+  height: 100vh;
 }
 
 .text-title {
-  font-size: calc(var(--index) * 1.5);
-  margin-top: 25vh;
+  font-size: calc(var(--index) * 1.4);
 }
 
 .gallery {
   display: flex;
-  padding: calc(var (--index) * 8) 0;
+  padding: calc(var(--index) * 8) 0;
+  flex-wrap: wrap;
 }
 
 .gallery > * {
-  flex: 1;
+  flex: 1 1 calc(33.333% - var(--gallery-gap));
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
 .gallery__item {
-  max-width: calc(var(--index) * 20);
+  max-width: calc(var(--index) * 22.5);
   margin-bottom: var(--gallery-gap);
   max-height: 180vh;
-  border-radius: 8px;
+  border-radius: 24px;
 }
 
 .gallery__left {
@@ -198,26 +173,62 @@ height: auto;
 }
 
 .text-block {
-  color: var(--color-text);
   position: relative;
 }
 
 .text-block__h {
-  font-size: 3rem;
-  line-height: 2.4rem;
-  color: #faf4ea;
-  /*color: var(--color-header);*/
-  margin-bottom: 1.5rem;
+  font-size: calc(var(--index) * 3);
+  margin-bottom: 1rem;
+}
+
+.text-block__s {
+  font-size: calc(var(--index) * 3);
+  margin-bottom: 1rem;
 }
 
 .text-block__p {
-  font-size: 1.3rem;
-  line-height: 1.5;
-  color: #819b57;
-  list-style-type: none; /*це я забираю крапочки в списку*/
+  font-size: calc(var(--index) * 1.2);
 }
 
-.xarxes-socials {
+.text-block__ul {
+  font-size: calc(var(--index) * 1.2);
+  list-style-type: none; /*це я забираю крапочки в списку*/
+  text-align: center;
+}
+
+.portfolio1__h {
+  color: #819b57;
+}
+
+.portfolio1__s {
+  color: #faf4ea;
+}
+
+.portfolio1__p {
+  color: #a66f0f;
+}
+
+.portfolio1__ul {
+  color: #a66f0f;
+}
+
+.portfolio2__h {
+  color: var(--color-brand-normal);
+}
+
+.portfolio2__s {
+  color: var(--color-brand-normal);
+}
+
+.portfolio2__p {
+  color: #ce7fa2;
+}
+
+.portfolio2__ul {
+  color: #ce7fa2;
+}
+
+/*.xarxes-socials {
   position: fixed;
   top: 32vh;
   right: 0;
@@ -236,4 +247,29 @@ height: auto;
   :hover {
     fill: #ec572e;
   }
+}*/
+
+.xarxes-socials {
+  position: fixed;
+  top: 20vh;
+  right: 0;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  overflow: hidden;
+  z-index: 99;
+}
+
+.xarxes-socials__icon {
+  width: calc(var(--index) * 2); /* Розмір іконок залежно від --index */
+  height: calc(var(--index) * 2); /* Розмір іконок залежно від --index */
+  fill: #3e6c82c0;
+  margin-top: calc(
+    var(--index) * 3
+  ); /* Відступ між іконками залежно від --index */
+}
+
+.xarxes-socials__icon:hover {
+  fill: #ec572e; /* Колір при наведенні */
 }
