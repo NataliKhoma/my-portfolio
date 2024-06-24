@@ -76,9 +76,6 @@ body {
   bottom: 8vh;
   cursor: pointer;
   margin-bottom: 8vh;
-
-  /*Імітація друкування*/
-
   white-space: nowrap;
   overflow: hidden;
   border-right: 0 solid;
@@ -104,10 +101,7 @@ body {
   margin-top: 8vh;
   bottom: 6vh;
   cursor: pointer;
-
-  /*Імітація друкування*/
-
-  white-space: nowrap;
+white-space: nowrap;
   overflow: hidden;
   border-right: 0 solid;
   visibility: hidden;
@@ -192,7 +186,7 @@ body {
 
 .text-block__ul {
   font-size: calc(var(--index) * 1.2);
-  list-style-type: none; /*це я забираю крапочки в списку*/
+  list-style-type: none;
   text-align: center;
 }
 
@@ -262,14 +256,14 @@ body {
 }
 
 .xarxes-socials__icon {
-  width: calc(var(--index) * 2); /* Розмір іконок залежно від --index */
-  height: calc(var(--index) * 2); /* Розмір іконок залежно від --index */
+  width: calc(var(--index) * 2);
+  height: calc(var(--index) * 2);
   fill: #3e6c82c0;
   margin-top: calc(
     var(--index) * 3
-  ); /* Відступ між іконками залежно від --index */
+  );
 }
 
 .xarxes-socials__icon:hover {
-  fill: #ec572e; /* Колір при наведенні */
+  fill: #ec572e;
 }
