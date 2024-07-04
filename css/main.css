@@ -11,6 +11,12 @@
   --color-brand-normal: #ec572e;
 }
 
+@media (max-width: 768px) {
+  :root {
+    --gallery-gap: calc(var(--index) * 6);
+  }
+}
+
 @font-face {
   font-family: outfit-c;
   src: url(../fonts/dancing-script-v25-latin-700.woff2);
@@ -101,7 +107,7 @@ body {
   margin-top: 8vh;
   bottom: 6vh;
   cursor: pointer;
-white-space: nowrap;
+  white-space: nowrap;
   overflow: hidden;
   border-right: 0 solid;
   visibility: hidden;
@@ -143,6 +149,13 @@ white-space: nowrap;
   flex-wrap: wrap;
 }
 
+@media (max-width: 768px) {
+  .gallery {
+    overflow-x: auto;
+    padding: calc(var(--index) * 0) 0;
+  }
+}
+
 .gallery > * {
   flex: 1 1 calc(33.333% - var(--gallery-gap));
   display: flex;
@@ -150,11 +163,26 @@ white-space: nowrap;
   flex-direction: column;
 }
 
+@media (max-width: 768px) {
+  .gallery > * {
+    flex: 0 0 auto;
+    width: 100vw;
+  }
+}
+
 .gallery__item {
   max-width: calc(var(--index) * 22.5);
   margin-bottom: var(--gallery-gap);
   max-height: 180vh;
   border-radius: 24px;
+}
+
+@media (max-width: 768px) {
+  .gallery__item {
+    width: 80%;
+    max-width: none;
+    height: auto;
+  }
 }
 
 .gallery__left {
@@ -168,6 +196,12 @@ white-space: nowrap;
 
 .text-block {
   position: relative;
+}
+
+@media (max-width: 768px) {
+  .text-block {
+    display: none;
+  }
 }
 
 .text-block__h {
