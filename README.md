@@ -1,2 +1,3 @@
 # my-portfolio
-My portfolio website is the result of an idea that grew into a full-fledged project. Using modern technology and creative design, I created this interactive and responsive resource to showcase my work and skills in web development.
+My portfolio website showcases my work as a frontend developer. The project features smooth scrolling animations, interactive sections, and a mobile-responsive design, all while adhering to modern web development standards.
+    Technologies: HTML, SCSS, JavaScript, GSAP (ScrollTrigger, ScrollSmoother), Responsive Design.
